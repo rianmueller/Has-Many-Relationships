@@ -1,16 +1,14 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS comments, posts, users;
 
 CREATE TABLE users
 (
     id serial PRIMARY KEY,
-    username VARCHAR(90) UNIQUE NOT NULL,
+    username VARCHAR(90) NOT NULL,
     first_name VARCHAR(90) DEFAULT NULL,
     last_name VARCHAR(90) DEFAULT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL
 );
-
-DROP TABLE IF EXISTS posts;
 
 CREATE TABLE posts
 (
@@ -22,8 +20,6 @@ CREATE TABLE posts
     updated_at TIMESTAMP NOT NULL,
     users_id int REFERENCES users (id) NOT NULL
 );
-
-DROP TABLE IF EXISTS comments;
 
 CREATE TABLE comments
 (
